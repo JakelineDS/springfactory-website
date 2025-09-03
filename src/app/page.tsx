@@ -1,21 +1,9 @@
-import Hero from "../components/Hero";
+import Header from "@/components/Header";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <>
-      <Hero />
-      <section>
-        <h2>Nuestros Productos</h2>
-        <p>Explora resortes de compresión, tracción, torsión y más.</p>
-      </section>
-      <section>
-        <h2>Misión y Visión</h2>
-        <p>Texto de misión y visión aquí...</p>
-      </section>
-      <section>
-        <h2>Contáctanos</h2>
-        <p>Formulario y datos de contacto aquí...</p>
-      </section>
+      <Header />
     </>
   );
 }

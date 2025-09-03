@@ -1,6 +1,12 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Montserrat } from "next/font/google"; 
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], 
+});
 
 export const metadata = {
   title: "Spring Factory Website",
@@ -14,12 +20,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
-        <Navbar /> 
+      <body className={montserrat.className}>
+        <Navbar />
         <main>{children}</main>
-        <Footer /> 
+        <Footer />
       </body>
     </html>
   );
 }
-

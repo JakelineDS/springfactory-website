@@ -1,58 +1,62 @@
 "use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Home, Info, Package, Users, ImageIcon, Phone } from "lucide-react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo + Slogan */}
-        <div className="flex flex-col leading-tight">
-          <h1 className="text-2xl font-bold text-gray-900">
-            RESORTES HLY
-          </h1>
-          <span className="text-sm text-gray-600">
-            Precisión en cada resorte
-          </span>
-        </div>
-
-        {/* Menú Desktop alineado a la derecha */}
-        <ul className="hidden md:flex space-x-6 text-gray-700 font-medium ml-auto">
-          <li><Link href="/">Inicio</Link></li>
-          <li><Link href="/nosotros">Nosotros</Link></li>
-          <li><Link href="/productos">Productos</Link></li>
-          <li><Link href="/clientes">Clientes</Link></li>
-          <li><Link href="/galeria">Galería</Link></li>
-          <li><Link href="/contacto">Contacto</Link></li>
-        </ul>
-
-        {/* Botón hamburguesa (solo móviles) */}
-        <div className="md:hidden ml-auto">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 focus:outline-none text-2xl"
-          >
-            {isOpen ? "✖" : "☰"}
-          </button>
-        </div>
+    <nav className="fixed top-0 left-0 w-full h-24 flex items-center justify-between px-10 bg-black text-white z-50 shadow-md">
+      <div className="flex items-center">
+        <Link href="/" className="block">
+          <Image
+            src="/logo-resortes.png"
+            alt="Logo Resortes HLY"
+            width={160}
+            height={70}
+            className="h-20 w-auto object-contain hover:scale-105 transition-transform duration-200"
+          />
+        </Link>
       </div>
 
-      {/* Menú móvil desplegable */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-100 shadow-md">
-          <ul className="flex flex-col space-y-2 px-6 py-4 text-gray-700 font-medium">
-            <li><Link href="/">Inicio</Link></li>
-            <li><Link href="/nosotros">Nosotros</Link></li>
-            <li><Link href="/productos">Productos</Link></li>
-            <li><Link href="/clientes">Clientes</Link></li>
-            <li><Link href="/galeria">Galería</Link></li>
-            <li><Link href="/contacto">Contacto</Link></li>
-          </ul>
-        </div>
-      )}
+      <ul className="flex space-x-5 text-sm font-medium">
+        <li>
+          <Link href="/" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Home size={16} /> <span>Inicio</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/nosotros" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Info size={16} /> <span>Nosotros</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/productos" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Package size={16} /> <span>Productos</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/clientes" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Users size={16} /> <span>Clientes</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/galeria" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <ImageIcon size={16} /> <span>Galería</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/contacto" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Phone size={16} /> <span>Contacto</span>
+          </Link>
+        </li>
+      </ul>
+
+      <Link
+        href="/contacto"
+        className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-xl font-semibold shadow-md transition"
+      >
+        Solicitar Cotización
+      </Link>
     </nav>
   );
 }
