@@ -6,14 +6,16 @@ type Props = {
 };
 
 export default function Header({ align = "center" }: Props) {
-  const alignClass = align === "right" ? "hero-right" : "hero-center";
+  const alignClass =
+    align === "right"
+      ? "md:ml-auto md:text-right"
+      : "text-left md:text-left";
 
   return (
-    <header className="hero relative w-full h-screen">
-
+    <header className="relative w-full h-screen flex items-center">
       <div className="absolute inset-0">
         <Image
-          src="/images/resortes.jpg"
+          src="/images/resortes-2.jpg"
           alt="Fondo de resortes"
           fill
           priority
@@ -22,23 +24,33 @@ export default function Header({ align = "center" }: Props) {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
+      <div className="relative z-10 container mx-auto px-6 text-white">
         <div className={`max-w-3xl ${alignClass}`}>
           <h1
             className="
-    mt-4 
-    text-2xl md:text-5xl    /* más grande en desktop */
-    font-semibold           /* resaltado pero no pesado como bold */
-    tracking-wide           /* un poco más de espacio entre letras */
-    leading-snug            /* buena lectura */
-    drop-shadow-md          /* sombra suave para resaltar sobre el fondo */
-  "
+              text-2xl md:text-5xl   
+              font-extrabold
+              tracking-tight
+              leading-snug
+              drop-shadow-lg
+            "
           >
-            Fabricamos resortes a medida con tolerancias precisas para industria
-            y talleres en todo el Perú.
+            Precisión y resistencia en cada resorte.
           </h1>
+          <p
+            className="
+              mt-4
+              text-base md:text-2xl
+              font-medium
+              text-gray-100   
+              drop-shadow-md
+            "
+          >
+            Fabricamos a medida en material nacional e importado, con ventas al
+            por mayor y menor, con envíos rápidos a cualquier parte del Perú.
+          </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-start">
             <Link
               href="/productos"
               className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black rounded-xl font-bold shadow-lg transition"
@@ -52,7 +64,6 @@ export default function Header({ align = "center" }: Props) {
               Solicitar cotización
             </Link>
           </div>
-
         </div>
       </div>
     </header>

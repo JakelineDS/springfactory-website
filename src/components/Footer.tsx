@@ -5,14 +5,16 @@ export default function Footer() {
   return (
     <footer className="bg-black-900 text-gray-200 mt-10 py-12">
       <div className="container mx-auto grid grid-flow-col auto-cols-fr gap-8 px-6">
-        
-        {/* Contacto */}
+
         <div>
           <h4 className="text-lg font-semibold mb-4 tracking-wide">Contacto</h4>
-          <p className="flex items-center gap-2 mb-2">
-            <FaMapMarkerAlt className="text-white" />
-            <span>Cercado de Lima</span>
-          </p>
+          <div className="flex items-start gap-2 mb-2">
+            <FaMapMarkerAlt className="text-white mt-1" />
+            <div className="text-sm">
+              <p>Av. Morales Duárez 703</p>
+              <p>Cercado de Lima</p>
+            </div>
+          </div>
           <p className="flex items-center gap-2 mb-2">
             <FaWhatsapp className="text-white" />
             <a 
@@ -37,7 +39,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Enlaces rápidos */}
         <div>
           <h4 className="text-lg font-semibold mb-4 tracking-wide">Enlaces Rápidos</h4>
           <ul className="space-y-2">
@@ -49,7 +50,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Productos columna 1 */}
         <div>
           <h4 className="text-lg font-semibold mb-4 tracking-wide">Productos</h4>
           <ul className="space-y-2 text-gray-400">
@@ -60,7 +60,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Productos columna 2 */}
         <div>
           <h4 className="text-lg font-semibold mb-4 tracking-wide">Productos</h4>
           <ul className="space-y-2 text-gray-400">
@@ -72,9 +71,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Línea final */}
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
-        <p>© {new Date().getFullYear()} RESORTES HLY – Precisión en cada resorte</p>
+        <p>© {new Date().getFullYear()} RESORTES HLY – Precisión y resistencia en cada resorte</p>
         <p className="mt-1">
           Designed by <strong className="text-white">Jakeline DevStudio</strong>
         </p>
