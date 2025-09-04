@@ -30,18 +30,18 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
+          <Link href="/procesos" className="flex items-center space-x-1 hover:text-cyan-400 transition">
+            <Package size={16} /> <span>Procesos</span>
+          </Link>
+        </li>
+        <li>
           <Link href="/productos" className="flex items-center space-x-1 hover:text-cyan-400 transition">
-            <Package size={16} /> <span>Productos</span>
+            <Users size={16} /> <span>Productos</span>
           </Link>
         </li>
         <li>
           <Link href="/clientes" className="flex items-center space-x-1 hover:text-cyan-400 transition">
-            <Users size={16} /> <span>Clientes</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/galeria" className="flex items-center space-x-1 hover:text-cyan-400 transition">
-            <ImageIcon size={16} /> <span>Galería</span>
+            <ImageIcon size={16} /> <span>Clientes</span>
           </Link>
         </li>
         <li>

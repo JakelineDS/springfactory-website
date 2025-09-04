@@ -15,7 +15,7 @@ export default function Header({ align = "center" }: Props) {
     <header className="relative w-full h-screen flex items-center">
       <div className="absolute inset-0">
         <Image
-          src="/images/resortes-2.jpg"
+          src="/images/galeria/resortes-3.jpg"
           alt="Fondo de resortes"
           fill
           priority

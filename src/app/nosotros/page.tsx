@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 export default function Nosotros() {
@@ -37,29 +36,15 @@ Transparencia: Mantenemos comunicación clara y honesta con clientes y aliados.`
   const [active, setActive] = useState<keyof typeof sections>("quienes");
 
   return (
-    <main className="relative w-full min-h-screen">
-      {/* Fondo con imagen + overlay global */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/resortes-3.jpg"
-          alt="Resortes de fondo"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
-
-      {/* Layout en 2 columnas full width */}
+    <main className="relative w-full min-h-screen pt-24">
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 min-h-screen w-full">
         {/* Columna izquierda */}
-        <aside className="bg-black/60 backdrop-blur-sm text-white px-8 py-10 md:py-20 flex flex-col">
-          <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide mt-10 md:mt-16">
+        <aside className="bg-slate-800 text-white px-8 py-12 flex flex-col">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
             Nosotros
           </h2>
 
-          {/* Links */}
-          <nav className="mt-10">
+          <nav className="mt-8">
             <ul className="border-y border-white/10 divide-y divide-white/10">
               {([
                 ["quienes", "Quiénes Somos"],
@@ -72,17 +57,19 @@ Transparencia: Mantenemos comunicación clara y honesta con clientes y aliados.`
                   <li key={key}>
                     <button
                       onClick={() => setActive(key)}
-                      className={`group w-full text-left flex items-center justify-between gap-3 py-4 pl-3 pr-1 transition border-l-4 ${isActive
+                      className={`group w-full text-left flex items-center justify-between gap-3 py-3 pl-3 pr-1 transition border-l-4 ${
+                        isActive
                           ? "border-yellow-400 text-yellow-400 bg-white/5"
-                          : "border-transparent text-gray-300 hover:text-yellow-300 hover:bg-white/5"
-                        }`}
+                          : "border-transparent text-gray-200 hover:text-yellow-300 hover:bg-white/5"
+                      }`}
                     >
                       <span className="text-sm md:text-base">{label}</span>
                       <ChevronRight
-                        className={`shrink-0 transition-transform ${isActive
+                        className={`shrink-0 transition-transform ${
+                          isActive
                             ? "translate-x-0.5 text-yellow-400"
                             : "group-hover:translate-x-0.5"
-                          }`}
+                        }`}
                         size={16}
                       />
                     </button>
@@ -94,39 +81,32 @@ Transparencia: Mantenemos comunicación clara y honesta con clientes y aliados.`
         </aside>
 
         {/* Columna derecha */}
-        <section className="md:col-span-2 bg-black/25 p-8 md:p-12 text-white flex flex-col justify-center min-h-screen">
-          {/* Título general (oculto para visión/misión y valores) */}
+        <section className="bg-slate-700 md:col-span-2 p-8 md:p-12 text-white flex flex-col justify-start">
           {active !== "vision" && active !== "valores" && (
-            <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 mt-6">
+            <h3 className="text-xl md:text-2xl font-bold text-yellow-400 mb-4">
               {sections[active].title}
             </h3>
           )}
 
           {active === "vision" ? (
             <>
-              <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 mt-6">
+              <h3 className="text-lg md:text-xl font-semibold text-yellow-300 mb-2">
                 Visión
               </h3>
-              <p className="text-base md:text-lg leading-relaxed text-gray-100 mb-6">
-                {sections[active].text
-                  .split("\n\n")[0]
-                  .replace("Visión: ", "")}
+              <p className="text-base md:text-lg leading-relaxed text-white/90 mb-4">
+                {sections[active].text.split("\n\n")[0].replace("Visión: ", "")}
               </p>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">
+              <h3 className="text-lg md:text-xl font-semibold text-yellow-300 mb-2">
                 Misión
               </h3>
-              <p className="text-base md:text-lg leading-relaxed text-gray-100">
-                {sections[active].text
-                  .split("\n\n")[1]
-                  .replace("Misión: ", "")}
+              <p className="text-base md:text-lg leading-relaxed text-white/90">
+                {sections[active].text.split("\n\n")[1].replace("Misión: ", "")}
               </p>
             </>
           ) : active === "valores" ? (
-
             <>
-              {/* Título único de Valores */}
-              <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 mt-8">
+              <h3 className="text-xl md:text-2xl font-bold text-yellow-400 mb-4">
                 {sections[active].title}
               </h3>
               <ul className="space-y-1">
@@ -135,7 +115,7 @@ Transparencia: Mantenemos comunicación clara y honesta con clientes y aliados.`
                   return (
                     <li
                       key={i}
-                      className="text-base md:text-lg leading-snug text-gray-100"
+                      className="text-base md:text-lg leading-snug text-white/90"
                     >
                       <span className="font-semibold text-white">{key}:</span>{" "}
                       {value?.trim()}
@@ -145,7 +125,7 @@ Transparencia: Mantenemos comunicación clara y honesta con clientes y aliados.`
               </ul>
             </>
           ) : (
-            <p className="text-base md:text-lg leading-relaxed text-gray-100">
+            <p className="text-base md:text-lg leading-relaxed text-white/90">
               {sections[active].text}
             </p>
           )}
